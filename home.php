@@ -24,17 +24,17 @@ if(isset($_SESSION['user'])){
         </li>
         <li class="active">
             <a href="home.php">
-            <span></span>
+            <span>Available Books</span>
             </a>
         </li>
         <li class="active">
             <a href="home.php">
-            <span></span>
+            <span>Borrowed Books</span>
             </a>
         </li>
         <li class="active">
             <a href="home.php">
-            <span></span>
+            <span>Recently Added</span>
             </a>
         </li>
     </ul>
