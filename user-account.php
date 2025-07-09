@@ -5,6 +5,7 @@ session_start();
 $errors=[];
 
 if($_SERVER['REQUEST_METHOD']==='POST' && isset($_POST['signup'])){
+    $ID=$_POST['ID'];
     $email=filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
     $name=$_POST['name'];
     $password=$_POST['password'];
@@ -36,10 +37,11 @@ if($_SERVER['REQUEST_METHOD']==='POST' && isset($_POST['signup'])){
     }
 
     $hashPassword=password_hash($password, PASSWORD_BCRYPT);
-    $stmt = $pdo->prepare('INSERT INTO users(email, password, name, created_at)
-                         VALUES (:email, :password, :name, :created_at)');
+    $stmt = $pdo->prepare('INSERT INTO users(ID, email, password, name, created_at)
+                         VALUES (:ID, :email, :password, :name, :created_at)');
 
     $stmt->execute([
+        'ID'=>$ID,
         'email'=>$email,
         'password'=>$hashPassword,
         'name'=>$name,
