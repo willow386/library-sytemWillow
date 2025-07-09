@@ -9,7 +9,7 @@ if($_SERVER['REQUEST_METHOD']==='POST' && isset($_POST['signup'])){
     $name=$_POST['name'];
     $password=$_POST['password'];
     $confirm_password=$_POST['confirm_password'];
-    $created_at=date('Y-m-d H:i:s');
+    $created_at=date('Y-m-d H:i:s');git 
 
     if(!filter_var($email, FILTER_SANITIZE_EMAIL)){
         $errors['name']='Invalid email format';
