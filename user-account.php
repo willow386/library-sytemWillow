@@ -11,16 +11,17 @@ if($_SERVER['REQUEST_METHOD']==='POST' && isset($_POST['signup'])){
     $password=$_POST['password'];
     $confirm_password=$_POST['confirm_password'];
     $created_at=date('Y-m-d H:i:s');
+    $role = isset($_POST['role']) ? $_POST['role'] : 'user';  
 
     if(!filter_var($email, FILTER_SANITIZE_EMAIL)){
-        $errors['name']='Invalid email format';
+        $errors['email']='Invalid email format';
     }
 
     if(empty($name)){
         $errors['name']='Name is required';
     }
     if(strlen($password)<8){
-        $error['password']='Password must be at least 8 characters long.';
+        $errors['password']='Password must be at least 8 characters long.';
     }
     if($password !== $confirm_password){
         $errors['confirm_password']='Password does not match';
@@ -37,15 +38,16 @@ if($_SERVER['REQUEST_METHOD']==='POST' && isset($_POST['signup'])){
     }
 
     $hashPassword=password_hash($password, PASSWORD_BCRYPT);
-    $stmt = $pdo->prepare('INSERT INTO users(ID, email, password, name, created_at)
-                         VALUES (:ID, :email, :password, :name, :created_at)');
+    $stmt = $pdo->prepare('INSERT INTO users(ID, email, password, name, created_at, role)
+                         VALUES (:ID, :email, :password, :name, :created_at, :role)');
 
     $stmt->execute([
         'ID'=>$ID,
         'email'=>$email,
         'password'=>$hashPassword,
         'name'=>$name,
-        'created_at' => $created_at
+        'created_at' => $created_at,
+        'role'=>$role
     ]);
     header('Location: index.php');
     exit();
@@ -59,7 +61,7 @@ if($_SERVER['REQUEST_METHOD']==='POST' && isset($_POST['signin'])){
         $errors['email'] = 'Invalid email format';
     }
     if(empty($password)){
-        $error['password'] = 'Password cannot be empty';
+        $errors['password'] = 'Password cannot be empty';
     }
     if(!empty($errors)) {
         $_SESSION['errors']=$errors;
@@ -72,13 +74,20 @@ if($_SERVER['REQUEST_METHOD']==='POST' && isset($_POST['signin'])){
 
     if($user && password_verify($password, $user['password'])){
         $_SESSION['user']=[
-            'id'=>$user['id'],
+            'ID'=>$user['ID'],
             'email'=>$user['email'],
             'name'=>$user['name'],
             'created_at'=>$user['created'],
+            'role'=>$user['role']
         ];
+        $_SESSION['user_id'] = $user['ID'];
+        // Role-based redirect here:
+    if ($user['role'] === 'admin') {
+        header('Location: dashboard.php');
+    } else {
         header('Location: home.php');
-        exit();
+    }
+
     }
     else{
         $errors['login']='Invalid email or password';

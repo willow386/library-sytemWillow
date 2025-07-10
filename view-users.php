@@ -4,7 +4,7 @@ require_once 'dbconnect.php';
 
 // Check if user is logged in
 if (!isset($_SESSION['user_id'])) {
-    header('Location: login.php');
+    header('Location: index.php');
     exit();
 }
 
@@ -24,7 +24,7 @@ if (isset($_SESSION['errors'])) {
 
 // Fetch all users
 try {
-    $stmt = $pdo->prepare('SELECT ID, name, email, created_at FROM users ORDER BY created_at DESC');
+    $stmt = $pdo->prepare('SELECT ID, name, email, created_at, role FROM users ORDER BY created_at DESC');
     $stmt->execute();
     $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
 } catch (PDOException $e) {
@@ -168,6 +168,7 @@ try {
                         <th>Name</th>
                         <th>Email</th>
                         <th>Created At</th>
+                        <th>Role</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
@@ -178,11 +179,12 @@ try {
                             <td><?php echo htmlspecialchars($user['name']); ?></td>
                             <td><?php echo htmlspecialchars($user['email']); ?></td>
                             <td><?php echo htmlspecialchars($user['created_at']); ?></td>
+                            <td><?php echo htmlspecialchars($user['role']); ?></td>
                             <td>
                                 <div class="actions">
-                                    <a href="edit-user.php?id=<?php echo $user['ID']; ?>" class="btn btn-warning">Edit</a>
+                                    <a href="edit-user.php?ID=<?php echo $user['ID']; ?>" class="btn btn-warning">Edit</a>
                                     <?php if ($user['ID'] != $_SESSION['user_id']): ?>
-                                        <a href="delete-user.php?id=<?php echo $user['ID']; ?>" 
+                                        <a href="delete-users.php?ID=<?php echo $user['ID']; ?>" 
                                            class="btn btn-danger" 
                                            onclick="return confirm('Are you sure you want to delete this user?')">Delete</a>
                                     <?php else: ?>
