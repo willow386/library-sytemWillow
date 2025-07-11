@@ -185,7 +185,7 @@
       </div>
       <h1>Admin Panel</h1>
       <a href="/dashboard.php"><i class="fas fa-chart-line"></i> Dashboard</a>
-      <a href="/dashboard.php"><i class="fas fa-cogs"></i> Control Panel</a>
+      <a href="dashboard.php"><i class="fas fa-cogs"></i> Control Panel</a>
     </nav>
 
     <main class="content">

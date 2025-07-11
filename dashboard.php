@@ -60,7 +60,7 @@ try {
 }
 ?>
 
-<!DOCTYPE html>
+<!-- !DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -116,7 +116,7 @@ try {
         }
         .content-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-co<lumns: 1fr 1fr;
             gap: 20px;
             margin-bottom: 30px;
         }
@@ -213,7 +213,7 @@ try {
                 grid-template-columns: 1fr;
             }
         }
-    </style>
+    </style> -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
@@ -367,25 +367,7 @@ try {
     </style>
 </head>
 <body>
-    
-    <div class="container">
-        <!-- Header -->
-        <div class="header">
-            <div class="welcome">
-                <div>
-                    <h1>Dashboard</h1>
-                    <div class="user-info">
-                        Welcome, <?php echo htmlspecialchars($current_user['name']); ?>
-                        <br>
-                        <?php echo htmlspecialchars($current_user['email']); ?>
-                    </div>
-                </div>
-                <div>
-                    <a href="create-admin.php" class="btn btn-add">Create Admin</a>
-                    <a href="logout.php" class="btn btn-danger">Logout</a>
-                </div>
-            </div>
-        </div>
+
     <div class="container">
         <!-- Header -->
         <div class="header">
@@ -405,21 +387,6 @@ try {
             </div>
         </div>
 
-        <!-- Statistics -->
-        <div class="stats-grid">
-            <div class="stat-card">
-                <div class="stat-number"><?php echo $total_books; ?></div>
-                <div class="stat-label">Total Books</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-number"><?php echo $total_users; ?></div>
-                <div class="stat-label">Total Users</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-number"><?php echo $total_copies; ?></div>
-                <div class="stat-label">Total Copies</div>
-            </div>
-        </div>
 
         <!-- Statistics -->
         <div class="stats-grid">
@@ -436,22 +403,6 @@ try {
                 <div class="stat-label">Total Copies</div>
             </div>
         </div>
-        <!-- Recent Activity -->
-        <div class="content-grid">
-            <div class="content-card">
-                <h3>Recent Books</h3>
-                <?php if (empty($recent_books)): ?>
-                    <div class="no-data">No books found</div>
-                <?php else: ?>
-                    <?php foreach ($recent_books as $book): ?>
-                        <div class="recent-item">
-                            <div class="recent-title"><?php echo htmlspecialchars($book['title']); ?></div>
-                            <div class="recent-subtitle">by <?php echo htmlspecialchars($book['author']); ?></div>
-                            <div class="recent-date">Added: <?php echo htmlspecialchars($book['created_at']); ?></div>
-                        </div>
-                    <?php endforeach; ?>
-                <?php endif; ?>
-            </div>
 
         <!-- Recent Activity -->
         <div class="content-grid">
@@ -497,32 +448,14 @@ try {
             </div>
         </div>
     </div>
-            <div class="content-card">
-                <h3>Recent Users</h3>
-                <?php if (empty($recent_users)): ?>
-                    <div class="no-data">No users found</div>
-                <?php else: ?>
-                    <?php foreach ($recent_users as $user): ?>
-                        <div class="recent-item">
-                            <div class="recent-title"><?php echo htmlspecialchars($user['name']); ?></div>
-                            <div class="recent-subtitle"><?php echo htmlspecialchars($user['email']); ?></div>
-                            <div class="recent-date">Joined: <?php echo htmlspecialchars($user['created_at']); ?></div>
-                        </div>
-                    <?php endforeach; ?>
-                <?php endif; ?>
-            </div>
-        </div>
 
-        <!-- Quick Actions -->
-        <div class="actions">
-            <h3>Quick Actions</h3>
-            <div class="btn-grid">
-                <a href="add-book.php" class="btn">Add New Book</a>
-                <a href="view-books.php" class="btn btn-secondary">View All Books</a>
-                <a href="add-user.php" class="btn btn-warning">Add New User</a>
-                <a href="view-users.php" class="btn btn-secondary">View All Users</a>
-            </div>
-        </div>
     </div>
+
+      <script>
+    function toggleSidebar() {
+      const sidebar = document.querySelector('.sidebar');
+      sidebar.classList.toggle('active');
+    }
+  </script>
 </body>
 </html>
