@@ -8,7 +8,7 @@ if (!isset($_SESSION['user'])) {
 $user = $_SESSION['user'];
 
 if ($user['role'] !== 'admin') {
-    header('Location: home.php');
+    header('Location: userdashboard.php');
     exit();
 }
 
@@ -367,7 +367,6 @@ try {
     </style>
 </head>
 <body>
-
     <div class="container">
         <!-- Header -->
         <div class="header">

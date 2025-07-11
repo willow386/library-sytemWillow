@@ -84,9 +84,9 @@ if($_SERVER['REQUEST_METHOD']==='POST' && isset($_POST['signin'])){
         $_SESSION['user_id'] = $user['ID'];
         // Role-based redirect here:
     if ($user['role'] === 'admin') {
-        header('Location: dashboard.php');
+        header('Location: Admindashboard.php');
     } else {
-        header('Location: home.php');
+        header('Location: userdashboard.php');
     }
 
     }

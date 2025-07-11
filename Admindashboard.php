@@ -1,3 +1,21 @@
+<?php
+session_start();
+if (!isset($_SESSION['user'])) {
+    header('Location: login.php');
+    exit();
+}
+
+$user = $_SESSION['user'];
+
+if ($user['role'] !== 'admin') {
+    header('Location: userdashboard.php');
+    exit();
+}
+
+require_once 'dbconnect.php';
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -184,7 +202,7 @@
         <img src="images/G-EYprpJ_400x400-removebg-preview.png" alt="Logo" />
       </div>
       <h1>Admin Panel</h1>
-      <a href="/dashboard.php"><i class="fas fa-chart-line"></i> Dashboard</a>
+      <a href="dashboard.php"><i class="fas fa-chart-line"></i> Dashboard</a>
       <a href="dashboard.php"><i class="fas fa-cogs"></i> Control Panel</a>
     </nav>
 
