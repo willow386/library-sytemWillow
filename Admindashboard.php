@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Admin Dashboard</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
-
+  
   <style>
     * {
       margin: 0;
@@ -166,7 +166,7 @@
   </style>
 </head>
 <body>
-
+    
   <!-- Top Navigation -->
   <div class="topbar">
     <div class="logo">📚 Admin Panel</div>
@@ -185,7 +185,7 @@
       </div>
       <h1>Admin Panel</h1>
       <a href="/dashboard.php"><i class="fas fa-chart-line"></i> Dashboard</a>
-      <a href="control-panel.php"><i class="fas fa-cogs"></i> Control Panel</a>
+      <a href="/dashboard.php"><i class="fas fa-cogs"></i> Control Panel</a>
     </nav>
 
     <main class="content">
