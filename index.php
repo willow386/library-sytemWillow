@@ -17,8 +17,8 @@ if (isset($_SESSION['errors'])) {
   <link rel="stylesheet" href="style.css">
 </head>
 
-<body>
-
+<body class="login-page">
+    <
   <div class="container" id="signIn">
     <h1 class="form-title">Sign In</h1>
     <?php

@@ -78,7 +78,7 @@ if (isset($_SESSION['errors'])) {
                 <input type="password" name="confirm_password" placeholder="Confirm Password" required>
                 <?php
                 if (isset($errors['confirm_password'])) {
-                    echo '<div class="error">
+                    echo '<div class="error">x
                     <p>' . $errors['confirm_password'] . '</p>
                     </div>';
                     unset($errors['confirm_password']);

@@ -8,7 +8,7 @@
 
 </head>
 <body>
-    
+    <?php include 'sidebar.php'; ?>
 <main class = "content">
     <h2 class ="button-like">Your Borrowed Book</h2>
     <table class ="data-table">
@@ -36,9 +36,12 @@
      </tbody>
 </table>
 </main>
-                
-
-    
 </body>
+<script>
+    function toggleSidebar() {
+        const sidebar = document.querySelector('.sidebar');
+        sidebar.classList.toggle('show');
+    }
+</script>
 </body>
 </html>

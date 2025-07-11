@@ -8,6 +8,10 @@
 
 </head>
 <body>
+    <button class="sidebar-toggle" onclick="toggleSidebar()">
+        <i class="fas fa-bars"></i>
+    </button>
+<?php include 'sidebar.php'; ?>
     <main class="content">
   <h2 class="button-like">Return Borrowed Books</h2>
   <div class="return-list">
@@ -20,8 +24,11 @@
     </ul>
   </div>
 </main>
-
-
-    
+<script>
+    function toggleSidebar() {
+        const sidebar = document.querySelector('.sidebar');
+        sidebar.classList.toggle('show');
+    }  
+  </script>  
 </body>
 </html>
