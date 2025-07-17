@@ -18,7 +18,6 @@ if (isset($_SESSION['errors'])) {
 </head>
 
 <body class="login-page">
-    <
   <div class="container" id="signIn">
     <h1 class="form-title">Sign In</h1>
     <?php
