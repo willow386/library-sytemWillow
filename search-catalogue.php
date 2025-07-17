@@ -11,6 +11,7 @@
 <body>
 <?php include 'sidebar.php'; ?>
     <main class="content">
+
   <h2 class="button-like">Search Catalogue</h2>
   <div class="input-group">
     <input type="text" placeholder="Search by title, author" />
@@ -23,7 +24,19 @@
       <button class="btn">Borrow</button>
     </div>
   </div>
+  <main class="content">
+  <!-- Your page content -->
+
+  <!-- Place this at the very end -->
+   <div class="navigation-buttons">
+    <a href="userdashboard.php" class="btn btn-nav">
+      <i class="bi bi-house-door-fill"></i> Dashboard
+    </a>
+  </div>
 </main>
+
+</main>
+
      <script>
         function toggleSidebar() {
             const sidebar = document.querySelector('.sidebar');

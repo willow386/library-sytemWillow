@@ -5,12 +5,12 @@ if (!isset($_SESSION['user'])) {
     exit();
 }
 
-$user = $_SESSION['user'];
+// $user = $_SESSION['user'];
 
-if ($user['role'] !== 'admin') {
-    header('Location: userdashboard.php');
-    exit();
-}
+// if ($user['role'] !== 'admin') {
+//     header('Location: userdashboard.php');
+//     exit();
+// }
 
 require_once 'dbconnect.php';
 
@@ -184,7 +184,8 @@ require_once 'dbconnect.php';
   </style>
 </head>
 <body>
-    
+ <body>
+
   <!-- Top Navigation -->
   <div class="topbar">
     <div class="logo">📚 Admin Panel</div>
@@ -197,14 +198,8 @@ require_once 'dbconnect.php';
 
   <!-- Main Dashboard Layout -->
   <div class="dashboard">
-    <nav class="sidebar">
-      <div class="logo">
-        <img src="images/G-EYprpJ_400x400-removebg-preview.png" alt="Logo" />
-      </div>
-      <h1>Admin Panel</h1>
-      <a href="dashboard.php"><i class="fas fa-chart-line"></i> Dashboard</a>
-      <a href="dashboard.php"><i class="fas fa-cogs"></i> Control Panel</a>
-    </nav>
+    
+    <?php include 'admin-sidebar.php'; ?>
 
     <main class="content">
       <h2 class="button-like">Hi Admin, Welcome to Your Dashboard</h2>
@@ -215,10 +210,11 @@ require_once 'dbconnect.php';
 
   <script>
     function toggleSidebar() {
-      const sidebar = document.querySelector('.sidebar');
+      const sidebar = document.getElementById('adminSidebar');
       sidebar.classList.toggle('active');
     }
   </script>
 
 </body>
+
 </html>

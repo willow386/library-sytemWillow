@@ -8,7 +8,7 @@ if (!isset($_SESSION['user'])) {
 $user = $_SESSION['user'];
 
 if ($user['role'] !== 'admin') {
-    header('Location: userdashboard.php');
+    header('Location: dashboard.php');
     exit();
 }
 
@@ -217,6 +217,9 @@ try {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+    
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -279,7 +282,7 @@ try {
         }
         .content-card h3 {
             margin-top: 0;
-            color: #333;
+      gi      color: #333;
             border-bottom: 2px solid #4CAF50;
             padding-bottom: 10px;
         }
