@@ -44,10 +44,10 @@ try {
 </head>
 <body>
 
-  <!-- Sidebar -->
+  
   <?php include 'sidebar.php'; ?>
 
-  <!-- Content -->
+
   <main class="content">
    
     <h2 class="button-like"><i class="bi bi-clock-history"></i> User Borrowing History</h2>
@@ -84,9 +84,9 @@ try {
       </tbody>
     </table>
     <main class="content">
-  <!-- Your page content -->
+  
 
-  <!-- Place this at the very end -->
+
   <div class="navigation-buttons">
     <a href="userdashboard.php" class="btn btn-nav">
       <i class="bi bi-house-door-fill"></i> Dashboard
